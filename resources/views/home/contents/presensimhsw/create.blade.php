@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <form action="/siswa/presensi" method="post" id="form1">
+                <form action="/mhsw/presensi" method="post" id="form1">
                     @csrf
                     <input type="hidden" name="pertemuan" value="{{ $pertemuan->id }}">
                     <input type="hidden" name="mapel" value="{{ $mapel->id }}">

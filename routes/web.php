@@ -11,7 +11,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\PresensiController;
-use App\Http\Controllers\PresensiSiswaController;
+use App\Http\Controllers\PresensiMhswController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SiswaController;
@@ -77,9 +77,7 @@ Route::resource('/profile', ProfileController::class)->only('show', 'update')->m
 
 // ---------------
 
-Route::prefix('siswa')->group(function () {
-    Route::get('/presensi', [PresensiSiswaController::class, 'showMapel']);
-    Route::get('/presensi/{mapel}', [PresensiSiswaController::class, 'showTgl']);
-    Route::get('/presensi/{mapel}/{pertemuan}', [PresensiSiswaController::class, 'showPresensi']);
-    Route::post('/presensi/', [PresensiSiswaController::class, 'inputAbsensi']);
-});
+Route::get('/mhsw/presensi', [PresensiMhswController::class, 'showMapel']);
+Route::get('/mhsw/presensi/{mapel}', [PresensiMhswController::class, 'showTgl']);
+Route::get('/mhsw/presensi/{mapel}/{pertemuan}', [PresensiMhswController::class, 'showPresensi']);
+Route::post('/mhsw/presensi/', [PresensiMhswController::class, 'inputAbsensi']);

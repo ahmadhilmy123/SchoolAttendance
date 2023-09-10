@@ -13,7 +13,7 @@ use DateTime;
 use Illuminate\Support\Facades\Auth;
 
 
-class PresensiSiswaController extends Controller
+class PresensiMhswController extends Controller
 {
     public $siswa;
 
@@ -26,7 +26,7 @@ class PresensiSiswaController extends Controller
     //menampilkan seluruh mata pelajaran untuk kelas
     public function showMapel()
     {
-        return view('home.contents.siswa.presensi.index', [
+        return view('home.contents.presensimhsw.index', [
             'title' => 'Pilih Mapel',
             'mapels' => $this->siswa->kelas->mapels,
         ]);
@@ -35,7 +35,7 @@ class PresensiSiswaController extends Controller
     //menampilkan tanggal pertemuan mapel
     public function showTgl(Mapel $mapel)
     {
-        return view('home.contents.siswa.presensi.tanggal', [
+        return view('home.contents.presensimhsw.tanggal', [
             'title' => 'Pilih Tanggal Presensi',
             'pertemuans' => $mapel->pertemuans,
         ]);
@@ -46,7 +46,7 @@ class PresensiSiswaController extends Controller
     {
         // $presensi = Presensi::select()->where('pertemuan_id', $pertemuan->id)->get();
         // dd($presensi[0]->absensi-);
-        return view('home.contents.siswa.presensi.create', [
+        return view('home.contents.presensimhsw.create', [
             'title' => 'Presensi',
             'mapel' => $mapel,
             'pertemuan' => $pertemuan,
@@ -69,6 +69,6 @@ class PresensiSiswaController extends Controller
                 'absensi_id' => $person['kehadiran'],
             ]);
         }
-        return redirect('/siswa/presensi/' . request("mapel"));
+        return redirect('/mhsw/presensi/' . request("mapel"));
     }
 }
