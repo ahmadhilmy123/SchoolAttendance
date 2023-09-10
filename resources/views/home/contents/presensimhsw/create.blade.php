@@ -31,8 +31,8 @@
                             {{--<input type="hidden" name="presensi[{{ $loop->index }}][siswa_id]" value="{{ $siswa->id }}">--}}
                             {{-- <input type="hidden" name="presensi[{{ $loop->index }}][kelas_id]" value="{{ $siswa->kelas->id }}">--}}
                             {{-- <input type="hidden" name="presensi[{{ $loop->index }}][mapel_id]" value="{{ $mapel->id }}">--}}
-                            <input type="hidden" name="presensi[{{ $siswa->id }}][siswa]" value="{{ $siswa->id }}">
-                            <select class="form-control" name="presensi[{{ $siswa->id }}][kehadiran]">
+                            <input type="hidden" name="presensi[{{ $loop->index }}][siswa]" value="{{ $siswa->id }}">
+                            <select class="form-control" name="presensi[{{ $loop->index }}][kehadiran]">
                                 <!-- <option selected disabled>Pilih Kehadiran</option> -->
                                 @foreach ($absensis as $absensi)
                                 <option value="{{ $absensi->id }}">{{ $absensi->kode }} - {{ $absensi->keterangan }}</option>

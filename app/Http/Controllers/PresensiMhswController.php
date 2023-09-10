@@ -8,8 +8,6 @@ use App\Models\Pertemuan;
 use Illuminate\Http\Request;
 use App\Models\Presensi;
 use App\Models\Siswa;
-use Carbon\Carbon;
-use DateTime;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -26,6 +24,7 @@ class PresensiMhswController extends Controller
     //menampilkan seluruh mata pelajaran untuk kelas
     public function showMapel()
     {
+        // dd($this->siswa->kelas->mapels);
         return view('home.contents.presensimhsw.index', [
             'title' => 'Pilih Mapel',
             'mapels' => $this->siswa->kelas->mapels,
@@ -35,6 +34,7 @@ class PresensiMhswController extends Controller
     //menampilkan tanggal pertemuan mapel
     public function showTgl(Mapel $mapel)
     {
+        // dd($mapel->pertemuans);
         return view('home.contents.presensimhsw.tanggal', [
             'title' => 'Pilih Tanggal Presensi',
             'pertemuans' => $mapel->pertemuans,
@@ -49,7 +49,7 @@ class PresensiMhswController extends Controller
             'mapel' => $mapel,
             'pertemuan' => $pertemuan,
             'siswas' => $mapel->kelas->siswas,
-            'presensi' => Presensi::select()->where('pertemuan_id', $pertemuan->id)->get(),
+            'presensi' => 
             'absensis' => Absensi::all()
         ]);
     }
@@ -57,15 +57,10 @@ class PresensiMhswController extends Controller
     //input data absensi
     public function inputAbsensi(Request $request)
     {
-        $now = new DateTime('now');
+        dd(request()->all());
         foreach ($request->presensi as $person) {
-            Presensi::create([
-                'pertemuan_id' => request('pertemuan'),
-                'waktu_absen' => $now->format('Y-m-d H:i:s'),
-                'siswa_id' => $person['siswa'],
-                'absensi_id' => $person['kehadiran'],
-            ]);
+            Presensi::create($person);
         }
-        return redirect('/mhsw/presensi/' . request("mapel"));
+        return redirect('/riwayatPresensi');
     }
 }
