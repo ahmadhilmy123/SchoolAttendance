@@ -49,7 +49,6 @@
 		</div>
 	</div> --}}
 
-	{{--@include('home.layouts.header')--}}
 
 	@include('home.layouts.right-sidebar')
 
