@@ -44,8 +44,6 @@ class PresensiMhswController extends Controller
     //manmpilkan absensi pada pertemuan tsb
     public function showPresensi(Mapel $mapel, Pertemuan $pertemuan)
     {
-        // $presensi = Presensi::select()->where('pertemuan_id', $pertemuan->id)->get();
-        // dd($presensi[0]->absensi-);
         return view('home.contents.presensimhsw.create', [
             'title' => 'Presensi',
             'mapel' => $mapel,
@@ -61,11 +59,10 @@ class PresensiMhswController extends Controller
     {
         $now = new DateTime('now');
         foreach ($request->presensi as $person) {
-            Presensi::updateOrInsert([
+            Presensi::create([
                 'pertemuan_id' => request('pertemuan'),
-                'siswa_id' => $person['siswa'],
-            ], [
                 'waktu_absen' => $now->format('Y-m-d H:i:s'),
+                'siswa_id' => $person['siswa'],
                 'absensi_id' => $person['kehadiran'],
             ]);
         }
