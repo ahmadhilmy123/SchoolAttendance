@@ -26,7 +26,7 @@
                     <td>{{ $mapel->user->firstName }} {{ $mapel->user->lastName }}</td>
                     <td>{{ $mapel->kelas->nama }}</td>
                     <td class="text-center">
-                        <a href="/guru/presensi/{{ $mapel->id }}" class="btn btn-sm btn-outline-primary">Pilih</a>
+                        <a href="/siswa/presensi/{{ $mapel->id }}" class="btn btn-sm btn-outline-primary">Pilih</a>
                     </td>
                 </tr>
                 @endforeach

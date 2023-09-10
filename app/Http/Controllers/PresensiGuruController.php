@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Absensi;
 use App\Models\Mapel;
 use App\Models\Pertemuan;
-use Illuminate\Http\Request;
 use App\Models\Presensi;
 use App\Models\User;
 use DateTime;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Concerns\ToArray;
 
 class PresensiGuruController extends Controller
 {
@@ -42,41 +43,11 @@ class PresensiGuruController extends Controller
     //manmpilkan absensi pada pertemuan tsb
     public function showPresensi(Mapel $mapel, Pertemuan $pertemuan)
     {
-
-        //kalo absen masuk
-        if ($pertemuan->keterangan == "masuk") {
-            //batesnya sampe mapel selesai
-
-            $limit = (Pertemuan::select("waktu")
-                ->where('mapel_id', $pertemuan->mapel->id)
-                ->where('keterangan', 'keluar')
-                ->first()
-            )["waktu"];
-
-            //kalo keluar
-        } else if ($pertemuan->keterangan == "keluar") {
-            //limitnya 30 menit setelah keluar
-            $limit = date('H:i:s', strtotime("$pertemuan->waktu + 30 minutes"));
-            // dd($limit);
-        }
-
-        if (
-            //kalo bukan hari ini atau 
-            $pertemuan->tanggal != date('Y-m-d') ||
-            // lewat dari jam segini
-            date('H:i:s') >= $limit
-        ) {
-            $telat = true;
-        } else {
-            $telat = false;
-        }
-
         return view('home.contents.guru.presensi.create', [
             'title' => 'Presensi',
             'mapel' => $mapel,
             'pertemuan' => $pertemuan,
             'guru' => $this->guru,
-            'telat' => $telat,
             'presensi' => Presensi::select()->where('pertemuan_id', $pertemuan->id)->where('level', 'guru')->first(),
             'absensis' => Absensi::all(),
         ]);

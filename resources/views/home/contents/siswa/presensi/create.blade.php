@@ -32,7 +32,7 @@
                             {{-- <input type="hidden" name="presensi[{{ $loop->index }}][kelas_id]" value="{{ $siswa->kelas->id }}">--}}
                             {{-- <input type="hidden" name="presensi[{{ $loop->index }}][mapel_id]" value="{{ $mapel->id }}">--}}
                             <input type="hidden" name="presensi[{{ $siswa->id }}][siswa]" value="{{ $siswa->id }}">
-                            <select class="form-control" name="presensi[{{ $siswa->id }}][kehadiran]" <?php echo ($telat) ? 'disabled' : ''; ?>>
+                            <select class="form-control" name="presensi[{{ $siswa->id }}][kehadiran]">
                                 @if(count($presensi->toArray()) != 0)
                                 <option selected hidden value="{{ $presensi[$loop->index]->absensi->id }}">{{ $presensi[$loop->index]->absensi->kode }} - {{ $presensi[$loop->index]->absensi->keterangan }}</option>
                                 @endif

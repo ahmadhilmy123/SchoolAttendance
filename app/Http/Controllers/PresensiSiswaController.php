@@ -8,8 +8,10 @@ use App\Models\Pertemuan;
 use Illuminate\Http\Request;
 use App\Models\Presensi;
 use App\Models\Siswa;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+
 
 class PresensiSiswaController extends Controller
 {
@@ -42,48 +44,16 @@ class PresensiSiswaController extends Controller
     //manmpilkan absensi pada pertemuan tsb
     public function showPresensi(Mapel $mapel, Pertemuan $pertemuan)
     {
-        if (Presensi::select()->where('pertemuan_id', $pertemuan->id)->where('level', 'guru')->first()) {
-
-            //kalo absen masuk
-            if ($pertemuan->keterangan == "masuk") {
-                //batesnya sampe mapel selesai
-
-                $limit = (Pertemuan::select("waktu")
-                    ->where('mapel_id', $pertemuan->mapel->id)
-                    ->where('keterangan', 'keluar')
-                    ->first()
-                )["waktu"];
-
-                //kalo keluar
-            } else if ($pertemuan->keterangan == "keluar") {
-                //limitnya 30 menit setelah keluar
-                $limit = date('H:i:s', strtotime("$pertemuan->waktu + 30 minutes"));
-                // dd($limit);
-            }
-
-            if (
-                //kalo bukan hari ini atau 
-                $pertemuan->tanggal != date('Y-m-d') ||
-                // lewat dari jam segini
-                date('H:i:s') >= $limit
-            ) {
-                $telat = true;
-            } else {
-                $telat = false;
-            }
-
-            return view('home.contents.siswa.presensi.create', [
-                'title' => 'Presensi',
-                'mapel' => $mapel,
-                'pertemuan' => $pertemuan,
-                'siswas' => $mapel->kelas->siswas,
-                'telat' => $telat,
-                'presensi' => Presensi::select()->where('pertemuan_id', $pertemuan->id)->where('level', 'siswa')->get(),
-                'absensis' => Absensi::all()
-            ]);
-        } else {
-            return back()->with('error', 'Absen belum dibuka, Pastikan guru telah absen!');
-        }
+        // $presensi = Presensi::select()->where('pertemuan_id', $pertemuan->id)->get();
+        // dd($presensi[0]->absensi-);
+        return view('home.contents.siswa.presensi.create', [
+            'title' => 'Presensi',
+            'mapel' => $mapel,
+            'pertemuan' => $pertemuan,
+            'siswas' => $mapel->kelas->siswas,
+            'presensi' => Presensi::select()->where('pertemuan_id', $pertemuan->id)->get(),
+            'absensis' => Absensi::all()
+        ]);
     }
 
     //input data absensi
@@ -94,7 +64,6 @@ class PresensiSiswaController extends Controller
             Presensi::updateOrInsert([
                 'pertemuan_id' => request('pertemuan'),
                 'siswa_id' => $person['siswa'],
-                'level' => 'siswa',
             ], [
                 'waktu_absen' => $now->format('Y-m-d H:i:s'),
                 'absensi_id' => $person['kehadiran'],

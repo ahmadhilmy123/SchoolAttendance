@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th class="table-plus datatable-nosort text-center">No.</th>
-                    <th class="text-center">Nama Guru</th>
+                    <th class="text-center">Nama Siswa</th>
                     <th class="text-center datatable-nosort">Keterangan Absen</th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@
                         <td>{{ $guru->firstName }} {{ $guru->lastName }}</td>
                         <td class="text-center">
                             <input type="hidden" name="presensi[guru]" value="{{ $guru->id }}">
-                            <select class="form-control" name="presensi[kehadiran]" <?php echo ($telat) ? 'disabled' : ''; ?>>
+                            <select class="form-control" name="presensi[kehadiran]">
                                 @if($presensi)
                                 <option selected hidden value="{{ $presensi->absensi->id }}">{{ $presensi->absensi->kode }} - {{ $presensi->absensi->keterangan }}</option>
                                 @endif
