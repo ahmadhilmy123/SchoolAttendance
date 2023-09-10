@@ -19,7 +19,6 @@ class UpdatePrensesisTable extends Migration
                 // $table->id();
                 $table->foreignId('pertemuan_id')->after('id');
                 $table->dateTime('waktu_absen')->after('pertemuan_id');
-                $table->string('level')->after('waktu_absen');
                 // $table->foreignId('siswa_id');
                 $table->dropColumn('kelas_id');
                 $table->dropColumn('mapel_id');
@@ -42,12 +41,11 @@ class UpdatePrensesisTable extends Migration
             'presensis',
             function (Blueprint $table) {
                 // $table->id();
-                $table->dropColumn('pertemuan_id');
                 $table->dropColumn('waktu_absen');
-                $table->dropColumn('level');
                 // $table->foreignId('siswa_id');
                 $table->foreignId('kelas_id')->after('siswa_id');
                 $table->foreignId('mapel_id')->after('kelas_id');
+                $table->dropColumn('pertemuan_id');
                 // $table->foreignId('guru_id');
                 // $table->foreignId('absensi_id');
                 // $table->timestamps();
