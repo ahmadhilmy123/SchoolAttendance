@@ -5,8 +5,9 @@ namespace Database\Seeders;
 use App\Models\Absensi;
 use App\Models\Kelas;
 use App\Models\Siswa;
-use App\Models\User;
 use App\Models\Mapel;
+use App\Models\KelasSiswa;
+use App\Models\Mahasiswa;
 use database\seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
@@ -27,6 +28,40 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // UserSeeder::class,
         ]);
+        Mahasiswa::create([
+            'email' => 'u53234@gmail.com',
+            'password' => bcrypt('12345678'), //password
+            // 'email_verified_at' => now(),
+            // 'remember_token' => '1234567898765432',
+            // 'is_admin' => true
+        ]);
+
+        KelasSiswa::create([
+            "siswa_id" => '1',
+            "kelas_id" => "10"
+        ]);
+        KelasSiswa::create([
+            "siswa_id" => '12',
+            "kelas_id" => "10"
+        ]);
+        KelasSiswa::create([
+            "siswa_id" => '2',
+            "kelas_id" => "11"
+        ]);
+        KelasSiswa::create([
+            "siswa_id" => '1',
+            "kelas_id" => "12"
+        ]);
+        KelasSiswa::create([
+            "siswa_id" => '1',
+            "kelas_id" => "13"
+        ]);
+        KelasSiswa::create([
+            "siswa_id" => '1',
+            "kelas_id" => "14"
+        ]);
+
+
 
 
         // Siswa::factory(24)->create([

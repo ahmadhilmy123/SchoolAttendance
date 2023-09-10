@@ -35,32 +35,12 @@ return [
     |
     */
 
-    // 'guards' => [
-    //     'web' => [
-    //         'driver' => 'session',
-    //         'provider' => 'users',
-    //     ],
-
-    //     'mahasiswa'  => [
-    //         'driver'  => 'session',
-    //         'provider' => 'mahasiswas',
-    //       ],
-  
-    //   ],
-    // ],
     'guards' => [
-
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'mahasiswa'  => [
-                    'driver'  => 'session',
-                    'provider' => 'mahasiswas',
-                  ],
-
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -83,11 +63,6 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
-        ],
-
-        'mahasiswas' => [
-            'driver' => 'eloquent',
-            'model'  => App\Models\Mahasiswa::class,
         ],
 
         // 'users' => [
