@@ -18,37 +18,32 @@
                 </tr>
             </thead>
             <tbody>
-                <form action="/mhsw/presensi" method="post" id="form1">
+                <form action="/presensi" method="post" id="form1">
                     @csrf
-                    <input type="hidden" name="pertemuan" value="{{ $pertemuan->id }}">
-                    <input type="hidden" name="mapel" value="{{ $mapel->id }}">
                     @foreach ($siswas as $siswa)
-                    <tr>
-                        <td class="table-plus text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $siswa->firstName }} {{ $siswa->lastName }}</td>
-                        <td class="text-center">
-                            {{--<input type="hidden" name="presensi[{{ $loop->index }}][guru_id]" value="{{ Auth::user()->id }}">--}}
-                            {{--<input type="hidden" name="presensi[{{ $loop->index }}][siswa_id]" value="{{ $siswa->id }}">--}}
-                            {{-- <input type="hidden" name="presensi[{{ $loop->index }}][kelas_id]" value="{{ $siswa->kelas->id }}">--}}
-                            {{-- <input type="hidden" name="presensi[{{ $loop->index }}][mapel_id]" value="{{ $mapel->id }}">--}}
-                            <input type="hidden" name="presensi[{{ $loop->index }}][siswa]" value="{{ $siswa->id }}">
-                            <select class="form-control" name="presensi[{{ $loop->index }}][kehadiran]">
-                                <!-- <option selected disabled>Pilih Kehadiran</option> -->
-                                @foreach ($absensis as $absensi)
-                                <option value="{{ $absensi->id }}">{{ $absensi->kode }} - {{ $absensi->keterangan }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="table-plus text-center">{{ $loop->iteration }}</td>
+                            <td>{{ $siswa->firstName }} {{ $siswa->lastName }}</td>
+                            <td class="text-center">
+                                <input type="hidden" name="presensi[{{ $loop->index }}][guru_id]" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="presensi[{{ $loop->index }}][siswa_id]" value="{{ $siswa->id }}">
+                                <input type="hidden" name="presensi[{{ $loop->index }}][kelas_id]" value="{{ $siswa->kelas->id }}">
+                                <input type="hidden" name="presensi[{{ $loop->index }}][mapel_id]" value="{{ $mapel->id }}">
+                                <select class="form-control" name="presensi[{{ $loop->index }}][absensi_id]">
+                                    <option selected value="2">H - Hadir</option>
+                                    @foreach ($absensis as $absensi)
+                                        <option value="{{ $absensi->id }}">{{ $absensi->kode }} - {{ $absensi->keterangan }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                        </tr>
                     @endforeach
                 </form>
             </tbody>
         </table>
-
-        <div class="d-flex justify-content-end m-3">
-            <button class="btn btn-outline-primary" type="submit" form="form1" value="Submit">Simpan</button>
-        </div>
     </div>
-
+</div>
+<div class="d-flex justify-content-end m-3">
+    <button class="btn btn-outline-primary" type="submit" form="form1" value="Submit">Simpan</button>
 </div>
 @endsection

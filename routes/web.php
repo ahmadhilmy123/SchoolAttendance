@@ -75,5 +75,3 @@ Route::resource('/profile', ProfileController::class)->only('show', 'update')->m
 
 Route::get('/mhsw/presensi', [PresensiMhswController::class, 'showMapel']);
 Route::get('/mhsw/presensi/{mapel}', [PresensiMhswController::class, 'showTgl']);
-Route::get('/mhsw/presensi/{mapel}/{pertemuan}', [PresensiMhswController::class, 'showPresensi']);
-Route::post('/mhsw/presensi/', [PresensiMhswController::class, 'inputAbsensi']);

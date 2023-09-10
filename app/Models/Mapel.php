@@ -11,18 +11,15 @@ class Mapel extends Model
 
     protected $guarded = ['id'];
 
-    public function user()
-    {
+    public function user(){
         return $this->belongsTo(User::class, 'guru_id', 'id');
     }
 
-    public function kelas()
-    {
+    public function kelas(){
         return $this->belongsTo(Kelas::class, 'kelas_id', 'id');
     }
 
-    public function pertemuans()
-    {
-        return $this->hasMany(Pertemuan::class);
+    public function presensis(){
+        return $this->hasMany(Presensi::class);
     }
 }

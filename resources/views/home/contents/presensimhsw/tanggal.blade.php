@@ -15,24 +15,20 @@
                     <th class="text-center">Kelas</th>
                     <th class="text-center">Tanggal</th>
                     <th class="text-center">Mapel</th>
-                    <th class="text-center">Guru</th>
-                    <th class="text-center">Ket.</th>
                     <th class="text-center datatable-nosort">Lanjutkan</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pertemuans as $pertemuan)
-                <tr>
-                    <td class="table-plus text-center">{{ $loop->iteration }}</td>
-                    <td>{{ $pertemuan->mapel->kelas->nama }}</td>
-                    <td>{{ \Carbon\Carbon::parse($pertemuan->waktu)->format('l, j F Y H:i') }}</td>
-                    <td>{{ $pertemuan->mapel->kode }} - {{ $pertemuan->mapel->nama }}</td>
-                    <td>{{ $pertemuan->mapel->user->firstName }} {{ $pertemuan->mapel->user->lastName }}</td>
-                    <td>{{ $pertemuan->keterangan }}</td>
-                    <td class="text-center">
-                        <a href="/mhsw/presensi/{{$pertemuan->mapel->id}}/{{$pertemuan->id}}" class="btn btn-sm btn-outline-primary">Pilih</a>
-                    </td>
-                </tr>
+                @foreach ($presensis as $presensi)
+                    <tr>
+                        <td class="table-plus text-center">{{ $loop->iteration }}</td>
+                        <td>{{ $presensi->kelas->nama }}</td>
+                        <td>{{ $presensi->created_at->toDayDateTimeString() }}</td>
+                        <td>{{ $presensi->mapel->kode }} - {{ $presensi->mapel->nama }}</td>
+                        <td class="text-center">
+                            <a href="/presensi/{{ $presensi->created_at }}" class="btn btn-sm btn-outline-primary">Pilih</a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
