@@ -28,13 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // UserSeeder::class,
         ]);
-        Mahasiswa::create([
-            'email' => 'u53234@gmail.com',
-            'password' => bcrypt('12345678'), //password
-            // 'email_verified_at' => now(),
-            // 'remember_token' => '1234567898765432',
-            // 'is_admin' => true
-        ]);
 
         KelasSiswa::create([
             "siswa_id" => '1',
@@ -60,9 +53,6 @@ class DatabaseSeeder extends Seeder
             "siswa_id" => '1',
             "kelas_id" => "14"
         ]);
-
-
-
 
         // Siswa::factory(24)->create([
         //     'kelas_id' => '1',
