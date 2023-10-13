@@ -27,7 +27,7 @@
                     <th class="text-center">Kode</th>
                     <th class="text-center">Nama</th>
                     <th class="text-center">Kelas</th>
-                    <th class="text-center">Guru</th>
+                    <th class="text-center">Dosen</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>

@@ -14,17 +14,17 @@
 @endif
 <div class="card-box mb-30">
     <div class="pd-20 d-flex justify-content-between">
-        <h4 class="text-blue h4">Tabel Siswa</h4>
+        <h4 class="text-blue h4">Tabel Mahasiswa</h4>
         <div>
-            <a data-toggle="modal" data-target="#import" type="button" class="btn btn-success">Import Data Siswa</a>
-            <a class="btn btn-danger" href="{{ route('export') }}">Export Data Siswa</a>
-            <a class="btn btn-primary" href="/siswa/create">Tambah Data Siswa</a>
+            <a data-toggle="modal" data-target="#import" type="button" class="btn btn-success">Import Data Mahasiswa</a>
+            <a class="btn btn-danger" href="{{ route('export') }}">Export Data Mahasiswa</a>
+            <a class="btn btn-primary" href="/admin/siswa/create">Tambah Data Mahasiswa</a>
         </div>
         <div class="modal fade" id="import" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Import Data Siswa</h4>
+                        <h4 class="modal-title" id="myLargeModalLabel">Import Data Mahasiswa</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
@@ -47,8 +47,8 @@
                 <tr>
                     <th class="table-plus datatable-nosort">No.</th>
                     <th class="text-center">NIS</th>
-                    <th class="text-center">Nama Siswa</th>
-                    <th class="text-center">Kelas Siswa</th>
+                    <th class="text-center">Nama Mahasiswa</th>
+                    <th class="text-center">Kelas Mahasiswa</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>

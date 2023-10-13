@@ -10,7 +10,7 @@
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
                     <div class="weight-700 font-24 text-dark">{{ $siswa }}</div>
-                    <div class="font-14 text-secondary weight-500">Total Siswa</div>
+                    <div class="font-14 text-secondary weight-500">Total Mahasiswa</div>
                 </div>
                 <div class="widget-icon">
                     <div class="icon" data-color="#00eccf"><i class="icon-copy dw dw-monkey"></i></div>
@@ -36,7 +36,7 @@
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
                     <div class="weight-700 font-24 text-dark">{{ $guru }}</div>
-                    <div class="font-14 text-secondary weight-500">Total Guru</div>
+                    <div class="font-14 text-secondary weight-500">Total Dosen</div>
                 </div>
                 <div class="widget-icon">
                     <div class="icon"><i class="icon-copy dw dw-user3" aria-hidden="true"></i></div>
@@ -60,16 +60,16 @@
 </div>
 
 <div class="card-box pb-10">
-    <div class="h5 pd-20 mb-0">Siswa Tidak Hadir</div>
+    <div class="h5 pd-20 mb-0">Mahasiswa Tidak Hadir</div>
     <table class="table hover data-table-export nowrap">
         <thead>
             <tr>
                 <th class="table-plus text-center">No.</th>
-                <th class="text-center">Nama Siswa</th>
+                <th class="text-center">Nama Mahasiswa</th>
                 <th class="text-center">Keterangan</th>
-                <th class="text-center">Kelas Siswa</th>
+                <th class="text-center">Kelas</th>
                 <th class="text-center">Mapel</th>
-                <th class="text-center">Guru</th>
+                <th class="text-center">Dosen</th>
                 <th class="text-center">Tanggal</th>
             </tr>
         </thead>

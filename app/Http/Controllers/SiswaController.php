@@ -20,7 +20,7 @@ class SiswaController extends Controller
     public function index()
     {
         return view('home.contents.siswa.index', [
-            'title' => 'Data Siswa',
+            'title' => 'Data Mahasiswa',
             'siswas' => Siswa::all()
         ]);
     }
@@ -33,7 +33,7 @@ class SiswaController extends Controller
     public function create()
     {
         return view('home.contents.siswa.create', [
-            'title' => 'Tambah Data Siswa',
+            'title' => 'Tambah Data Mahasiswa',
             'kelas' => Kelas::all(),
             'siswa' => Siswa::all()
         ]);

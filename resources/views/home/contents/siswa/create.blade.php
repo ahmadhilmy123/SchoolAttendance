@@ -7,7 +7,7 @@
 <div class="pd-20 card-box mb-30">
     <div class="clearfix">
         <div class="pull-left">
-            <h4 class="text-blue h4">Form Siswa</h4>
+            <h4 class="text-blue h4">Form Mahasiswa</h4>
         </div>
         <div class="pull-right">
         </div>
@@ -33,7 +33,7 @@
                     <small class="form-text text-danger">Harus diisi</small>
                 </div>
                 <div class="form-group @error('kelas_id') has-danger @enderror">
-                    <label for="kelas_id">Kelas Siswa</label>
+                    <label for="kelas_id">Kelas Mahasiswa</label>
                     <select required name="kelas_id" id="kelas_id" class="selectpicker form-control" data-style="btn-outline-primary">
                         <option selected disabled hidden>Pilih Kelas Siswa...</option>
                         @foreach ($kelas as $kelas)
@@ -50,7 +50,7 @@
                     <small class="form-text text-danger">Harus diisi</small>
                 </div>
                 <div class="form-group @error('firstName') has-danger @enderror">
-                    <label for="firstName" class="form-control-label">Nama Depan Siswa</label>
+                    <label for="firstName" class="form-control-label">Nama Depan Mahasiswa</label>
                     <input value="{{ old('firstName') }}" required name="firstName" id="firstName" type="text" class="form-control @error('firstName') form-control-danger @enderror">
                     @error('firstName')
                         <div class="form-control-feedback">{{ $message }}</div>
@@ -58,7 +58,7 @@
                     <small class="form-text text-danger">Harus diisi</small>
                 </div>
                 <div class="form-group @error('lastName') has-danger @enderror">
-                    <label for="lastName" class="form-control-label">Nama Belakang Siswa</label>
+                    <label for="lastName" class="form-control-label">Nama Belakang Mahasiswa</label>
                     <input value="{{ old('lastName') }}" required name="lastName" id="lastName" type="text" class="form-control @error('lastName') form-control-danger @enderror">
                     @error('lastName')
                         <div class="form-control-feedback">{{ $message }}</div>
@@ -66,7 +66,7 @@
                     <small class="form-text text-danger">Harus diisi</small>
                 </div>
                 <div class="form-group @error('namaAyah') has-danger @enderror">
-                    <label for="namaAyah" class="form-control-label">Nama Ayah Siswa</label>
+                    <label for="namaAyah" class="form-control-label">Nama Ayah Mahasiswa</label>
                     <input value="{{ old('namaAyah') }}" required name="namaAyah" id="namaAyah" type="text" class="form-control @error('namaAyah') form-control-danger @enderror">
                     @error('namaAyah')
                         <div class="form-control-feedback">{{ $message }}</div>
@@ -74,7 +74,7 @@
                     <small class="form-text text-danger">Harus diisi</small>
                 </div>
                 <div class="form-group @error('namaIbu') has-danger @enderror">
-                    <label for="namaIbu" class="form-control-label">Nama Ibu Siswa</label>
+                    <label for="namaIbu" class="form-control-label">Nama Ibu Mahasiswa</label>
                     <input value="{{ old('namaIbu') }}" required name="namaIbu" id="namaIbu" type="text" class="form-control @error('namaIbu') form-control-danger @enderror">
                     @error('namaIbu')
                         <div class="form-control-feedback">{{ $message }}</div>

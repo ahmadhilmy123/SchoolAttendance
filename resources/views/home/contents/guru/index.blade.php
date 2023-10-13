@@ -47,7 +47,7 @@
                 <tr>
                     <th class="table-plus datatable-nosort">No.</th>
                     <th class="text-center">NIK</th>
-                    <th class="text-center">Nama Guru</th>
+                    <th class="text-center">Nama Dosen</th>
                     <th class="text-center">Email</th>
                     <th class="text-center">Action</th>
                 </tr>

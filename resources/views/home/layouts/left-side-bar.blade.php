@@ -21,32 +21,42 @@
                         <span class="micon dw dw-house-1"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
-                @cannot('admin', User::class)                    
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-pen"></span><span class="mtext">Absensi</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a class="{{ Request::is('presensi*') ? 'active' : '' }}" href="/presensi">Buat Absensi Baru</a></li>
-                            <li><a class="{{ Request::is('riwayatPresensi*') ? 'active' : '' }}" href="/riwayatPresensi">Riwayat Absensi</a></li>
-                        </ul>
-                    </li>
-                @endcannot
-                @can('admin', User::class)                    
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-file-211"></span><span class="mtext">Data-Data</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a class="{{ Request::is('mapel*') ? 'active' : '' }}" href="/mapel">Mapel</a></li>
-                            <li><a class="{{ Request::is('guru*') ? 'active' : '' }}" href="/guru">Guru</a></li>
-                            <li><a class="{{ Request::is('kelas*') ? 'active' : '' }}" href="/kelas">Kelas</a></li>
-                            <li><a class="{{ Request::is('siswa*') ? 'active' : '' }}" href="/siswa">Siswa</a></li>
-                            <li><a class="{{ Request::is('keteranganPresensi*') ? 'active' : '' }}" href="/keteranganPresensi">Keterangan Absensi</a></li>
-                        </ul>
-                    </li>
-                @endcan
-                {{-- <li>
+                @cannot('admin', User::class)
+                <li>
+                    <a href="/guru/presensi" class="dropdown-toggle no-arrow {{ Request::is('/guru/presensi') ? 'active' : '' }}">
+                        <span class="micon dw dw-pen"></span><span class="mtext">Presensi</span>
+                    </a>
+                </li>
+                {{--<li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-pen"></span><span class="mtext">Absensi</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a class="{{ Request::is('presensi*') ? 'active' : '' }}" href="/guru/presensi">Buat Absensi Baru</a></li>
+                <li><a class="{{ Request::is('riwayatPresensi*') ? 'active' : '' }}" href="/guru/riwayatPresensi">Riwayat Absensi</a></li>
+            </ul>
+            </li>--}}
+            @endcannot
+            @can('admin', User::class)
+            <li>
+                <a href="/admin/presensi" class="dropdown-toggle no-arrow {{ Request::is('/presensi') ? 'active' : '' }}">
+                    <span class="micon dw dw-house-1"></span><span class="mtext">Presensi</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle">
+                    <span class="micon dw dw-file-211"></span><span class="mtext">Data-Data</span>
+                </a>
+                <ul class="submenu">
+                    <li><a class="{{ Request::is('mapel*') ? 'active' : '' }}" href="/admin/mapel">Mapel</a></li>
+                    <li><a class="{{ Request::is('guru*') ? 'active' : '' }}" href="/admin/guru">Dosen</a></li>
+                    <li><a class="{{ Request::is('kelas*') ? 'active' : '' }}" href="/admin/kelas">Kelas</a></li>
+                    <li><a class="{{ Request::is('siswa*') ? 'active' : '' }}" href="/admin/siswa">Mahasiswa</a></li>
+                    <li><a class="{{ Request::is('keteranganPresensi*') ? 'active' : '' }}" href="/admin/keteranganPresensi">Keterangan Absensi</a></li>
+                </ul>
+            </li>
+            @endcan
+            {{-- <li>
                     <a href="#" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-user-13"></span><span class="mtext">Guru</span>
                     </a>

@@ -31,12 +31,12 @@ class SiswaLoginController extends Controller
     $presensis = Presensi::where('absensi_id', '!=', 2)->latest()->get();
 
     return view('dashboard-siswa', [
-        'title' => 'dashboard-siswa',               
-       'siswa' => Siswa::count(),       
-        'guru' => User::count(),
-        'mapel' => Mapel::count(),
-        'kelas' => Kelas::count(),
-'presensis' => Presensi::where('absensi_id', '!=', 2)->latest()->get(),
+      'title' => 'dashboard-Mahasiswa',
+      'siswa' => Siswa::count(),
+      'guru' => User::count(),
+      'mapel' => Mapel::count(),
+      'kelas' => Kelas::count(),
+      'presensis' => $presensiss,
     ]);
     
     }

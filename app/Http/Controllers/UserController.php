@@ -70,7 +70,7 @@ class UserController extends Controller
     public function create()
     {
         return view('home.contents.guru.create', [
-            'title' => 'Tambah Data Guru',
+            'title' => 'Tambah Data Dosen',
         ]);
     }
 
@@ -111,7 +111,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('home.contents.guru.show', [
-            'title' => 'Detail Data Guru',
+            'title' => 'Detail Data Dosen',
             'guru' => $user
         ]);
     }
@@ -125,7 +125,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         return view('home.contents.guru.edit', [
-            'title' => 'Edit Data Guru',
+            'title' => 'Edit Data Dosen',
             'guru' => $user,
         ]);
     }

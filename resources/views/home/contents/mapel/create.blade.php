@@ -34,9 +34,9 @@
                     <small class="form-text text-danger">Harus diisi</small>
                 </div>
                 <div class="form-group @error('guru_id') has-danger @enderror">
-                    <label for="guru_id">Guru Mapel</label>
+                    <label for="guru_id">Dosen Mapel</label>
                     <select required name="guru_id" id="guru_id" class="selectpicker form-control" data-style="btn-outline-primary">
-                        <option selected disabled hidden>Pilih Guru Mapel...</option>
+                        <option selected disabled hidden>Pilih Dosen Mapel...</option>
                         @foreach ($gurus as $guru)
                             @if (old('guru_id') == $guru->id)
                                 <option value="{{ $guru->id }}" selected>Bpk/Ibu {{ $guru->firstName }} {{ $guru->lastName }}</option>                                
