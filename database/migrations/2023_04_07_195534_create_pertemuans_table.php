@@ -17,7 +17,7 @@ class CreatePertemuansTable extends Migration
             $table->id();
             $table->foreignIdFor(Mapel::class)->constrained()->cascadeOnDelete();
             $table->date("tanggal");
-            $table->time('waktu');
+            $table->time('waktu')->nullable();
             $table->integer("sks");
             $table->string('keterangan');
             $table->timestamps();;
