@@ -15,10 +15,10 @@
         @csrf
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="form-group @error('nis') has-danger @enderror">
-                    <label for="nis" class="form-control-label">NIS</label>
-                    <input value="{{ old('nis') }}" name="nis" id="nis" type="text" class="form-control @error('nis') form-control-danger @enderror" autofocus required>
-                    @error('nis')
+                <div class="form-group @error('nim') has-danger @enderror">
+                    <label for="nim" class="form-control-label">NIM</label>
+                    <input value="{{ old('nim') }}" name="nim" id="nim" type="text" class="form-control @error('nim') form-control-danger @enderror" autofocus required>
+                    @error('nim')
                     <div class="form-control-feedback">{{ $message }}</div>
                     @enderror
                     <small class="form-text text-danger">Harus diisi</small>

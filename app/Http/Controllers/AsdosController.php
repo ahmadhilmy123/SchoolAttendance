@@ -170,7 +170,7 @@ class AsdosController extends Controller
 
     // public function excelRekap(Dosen $dosen)
     // {
-    //     return Excel::download(new DosenExport($dosen), 'Rekap Dosen' . $dosen->firsName . ' ' . $dosen->lastName . ' pada tanggal ' . date('Y-m-d') . '.xlsx');
+    //     return Excel::download(new PresensiDosenExport($dosen), 'Rekap Dosen' . $dosen->firsName . ' ' . $dosen->lastName . ' pada tanggal ' . date('Y-m-d') . '.xlsx');
     // }
 
     // public function pdfRekap(Dosen $dosen)

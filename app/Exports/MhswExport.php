@@ -3,15 +3,22 @@
 namespace App\Exports;
 
 use App\Models\Mahasiswa;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class MhswExport implements FromCollection
+class MhswExport implements FromView
 {
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function collection()
+    protected $mhsw;
+
+    function __construct($mhsw)
     {
-        return Mahasiswa::all();
+        $this->mhsw = $mhsw;
+    }
+    public function view() : View
+    {
+        return view('contents.admin.mahasiswa.export', [
+            'title' => 'Data Mahasiswa',
+            'mahasiswas' => $this->mhsw,
+        ]);
     }
 }

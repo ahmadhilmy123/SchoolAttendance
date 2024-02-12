@@ -90,7 +90,7 @@
                 </tr>
                 <tr>
                     <th rowspan='2'>No</th>
-                    <th rowspan='2'>NIS</th>
+                    <th rowspan='2'>NIM</th>
                     <th rowspan='2'>Nama</th>
                     <th rowspan='2'>Jenis Kelamin</th>
                     <th colspan='{{$pertemuans->count()}}'>Tanggal Pertemuan</th>
@@ -114,7 +114,7 @@
                 @foreach ($mahasiswas as $mahasiswa)
                 <tr>
                     <td class="text-right">{{$loop->index + 1}}</td>
-                    <td>{{$mahasiswa['detail']['nis']}}</td>
+                    <td>{{$mahasiswa['detail']['nim']}}</td>
                     <td>{{$mahasiswa['detail']['firstName']}} {{$mahasiswa['detail']['lastName']}}</td>
                     <td>{{$mahasiswa['detail']['jnsKelamin']}}</td>
 

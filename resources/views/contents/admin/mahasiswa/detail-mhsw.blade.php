@@ -35,8 +35,8 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>NIS :</td>
-                    <td>{{ $mahasiswa->nis }}</td>
+                    <td>NIM :</td>
+                    <td>{{ $mahasiswa->nim }}</td>
                 </tr>
                 <tr>
                     <td>2</td>

@@ -8,9 +8,8 @@ use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class MhswImport implements toArray, WithHeadingRow, WithChunkReading, WithBatchInserts
+class DosenImport implements toArray, WithHeadingRow, WithChunkReading, WithBatchInserts
 {
-
     use Importable;
 
     public function array(array $rows)
